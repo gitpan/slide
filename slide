@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use App::Slide;
+
+App::Slide->usage unless @ARGV == 3;
+
+App::Slide->new(
+	pod_file     => $ARGV[0],
+	slide_dir    => $ARGV[1],
+	template_dir => $ARGV[2],
+)->generate;
+

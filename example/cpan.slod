@@ -1,0 +1,236 @@
+=head1 conf
+
+title     My CPAN Toolkit
+author    Casey West
+email     casey@geeknest.com
+copyright Copyright (c) 2003 Casey West
+css       style.css
+
+=head1 Disclaimer
+
+=head2 YMMV
+
+=for continue continue
+
+=head2 80/20 Rule
+
+=head1 Database Abstraction
+
+=head2 Class::DBI
+
+=for continue continue
+
+=head2 Class::DBI::mysql
+
+=head1 Templating
+
+=head2 Template Toolkit
+
+=head1 Web Applications
+
+=head2 Apache::Request
+
+=for continue continue
+
+=head2 HTML::Mason
+
+=for continue continue
+
+=head2 Form
+
+Not yet CPAN.
+
+=head1 Data Serialization
+
+=head2 WDDX
+
+=head2 YAML
+
+=head2 XML::Simple
+
+=head1 Network Daemon
+
+=head2 POE
+
+=head1 IPC
+
+=head2 POE
+
+=head1 IRC Robots
+
+=head2 POE
+
+=head1 Link Checkers
+
+=head2 POE
+
+=head1 Sending Faxes
+
+=head2 POE
+
+=head1 Sending Email
+
+=head2 POEST
+
+Almost.
+
+=head1 Email
+
+=head2 Email::Simple
+
+=head2 MIME::Parser
+
+=head2 Mail::Audit
+
+=head1 Optimization
+
+=head2 Memoize
+
+=head2 Cache::Cache
+
+=head1 Building Software
+
+=head2 Module::Build
+
+=head2 ExtUtils::MakeMaker
+
+=head1 Exceptions
+
+=head2 Exception::Class
+
+=head1 Testing
+
+=head2 Test::More
+
+=head2 Test::Pod
+
+=head2 XML::LibXML
+
+=head2 Test::Harness
+
+=head1 Scripting
+
+=head2 Getopt::Long
+
+=head2 Getopt::Auto
+
+=head2 Shell
+
+=head2 IPC::Open2
+
+=head2 File::Find
+
+=head2 File::Spec::Functions
+
+=head1 OO Programming
+
+=head2 Class::Accessor
+
+=head2 Class::Accessor::Fast
+
+=head2 Class::Struct
+
+=head2 NEXT
+
+=head2 Class::Data::Inheritable
+
+=head1 Text Processing
+
+=head2 Parse::RecDescent
+
+=head2 HTML::FromText
+
+=head2 POD::Pom
+
+=head2 Text::CSV_XS
+
+=head1 Image Manipulation
+
+=head2 Imager
+
+=head2 Gimp
+
+=head1 Internationalization
+
+=head2 Locale::*
+
+Constant, Country, Currency, Language, Maketext, Script.
+
+=head2 I18N::LangTags
+
+=head1 WWW
+
+=head2 LWP::UserAgent
+
+=head2 LWP::Simple
+
+=head2 HTTP::Request::Common
+
+=head2 WWW::Mechanize
+
+=head1 Internet
+
+=head2 Net::DNS
+
+=head1 RPC
+
+=head2 SOAP::Lite
+
+=head2 XML::RPC
+
+=head1 XML
+
+=head2 XML::Simple
+
+=head2 XML::RSS
+
+=head2 XML::LibXML
+
+=head1 HTML
+
+=head2 HTML::TokeParser
+
+=head2 XML::LibXML
+
+=head2 HTML::Tree
+
+=head1 Date Handling
+
+=head2 DateTime
+
+=head2 Time::Piece
+
+=head1 Configuration
+
+=head2 Config::General
+
+=head1 General
+
+=head2 constant
+
+=head2 base
+
+=head2 lib
+
+=head2 Scalar::Util
+
+=head2 List::Util
+
+=head2 Hash::Util
+
+=head2 CPANPLUS
+
+=head1 What I Don't Use
+
+=head2 CGI::FormBuilder
+
+=head2 Tangram
+
+=head2 DBIx::RecordSet
+
+=head2 ExtUtils::ModuleMaker
+
+=head2 Meta
+
+=head2 Acme::Current
+

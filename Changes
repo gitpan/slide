@@ -1,0 +1,14 @@
+Revision history for Perl extension App::Slide
+
+0.01	Wed Jan  7 22:30:51 CST 2004
+
+	Raw from Casey West's original "slod" system.
+
+	This is so alpha it hurts to even think about it.  Stuff
+	is going to change like crazy.  It works, sort of.  There
+	will be changes coming down the pipe, and I'm not even going
+	to document them!  THAT'S how alpha this baby is.
+
+	So if you want to use it, go ahead, but otherwise, wait a
+	few days.
+
