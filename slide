@@ -3,13 +3,33 @@
 use warnings;
 use strict;
 
+use File::Spec::Functions qw( splitpath );
 use App::Slide;
 
-App::Slide->usage unless @ARGV == 3;
+if ( @ARGV != 3 ) {
+    my $program = (splitpath( $0 ))[-1];
+    die "Usage: $program slidefile.pod slide_dir template_dir\n";
+}
 
-App::Slide->new(
-	pod_file     => $ARGV[0],
-	slide_dir    => $ARGV[1],
-	template_dir => $ARGV[2],
-)->generate;
+my $pod_file = shift;
+my $slide_dir = shift;
+my $template_dir = shift;
 
+my $set = 
+    App::Slide->new(
+        pod_file     => $pod_file,
+        slide_dir    => $slide_dir,
+        template_dir => $template_dir,
+    );
+
+my $nslides;
+$nslides = $set->generate unless $set->errors;
+
+my @errors = $set->errors;
+if ( @errors ) {
+    print join( "\n", @errors, "" );
+} else {
+    print "Generated $nslides slides in $slide_dir\n";
+}
+
+exit @errors;

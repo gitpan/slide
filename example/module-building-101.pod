@@ -1,0 +1,232 @@
+=head1 conf
+
+title     Module Building 101
+author    Andy Lester
+email     andy@petdance.com
+copyright Copyright (c) 2004 Andy Lester
+css       style.css
+
+=head1 Module Building 101
+
+=head1 My Modules
+
+=head2 My Modules
+
+I've been creating modules for a few years now...
+
+=over 4
+
+=item * Apache-Lint
+
+=item * Apache-Pod
+
+=item * Carp-Assert-More
+
+=item * HTML-Lint
+
+=item * MARC-Record
+
+=item * Test-Harness
+
+=item * Test-Memory-Cycle
+
+=item * Test-Pod
+
+=item * Test-Pod-Coverage
+
+=item * WDDX
+
+=item * WWW-Mechanize
+
+=back
+
+=head1 Installing a module
+
+=head2 Installing a module
+
+=over 4
+
+=item * Download
+
+    wget http://search.cpan.org/~petdance/WWW-Mechanize-0.70/
+
+=item * Unpack
+
+    tar zxvf WWW-Mechanize-0.70.tar.gz
+
+=item * Build & install
+
+    cd WWW-Mechanize-0.70
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+=back
+
+=head2 The magical incantation
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+=head1 C<perl Makefile.PL>
+
+=head2 C<perl Makefile.PL>
+
+Creates the F<Makefile> that drives the rest of the steps.
+
+Built around the C<ExtUtils::MakeMaker>'s C<WriteMakefile> function.
+
+=head1 C<make>
+
+=head2 C<make>
+
+Builds the F<blib> hierarchy.
+
+=over 4
+
+=item * Libs go into F<blib/lib>
+
+=item * Scripts go into F<blib/script>
+
+=item * Creates F<blib/man*> pages
+
+=back
+
+    $ make
+    cp lib/WWW/Mechanize.pm blib/lib/WWW/Mechanize.pm
+    cp lib/WWW/Mechanize/FAQ.pod blib/lib/WWW/Mechanize/FAQ.pod
+    cp lib/WWW/Mechanize/Link.pm blib/lib/WWW/Mechanize/Link.pm
+    cp lib/WWW/Mechanize/Examples.pod blib/lib/WWW/Mechanize/Examples.pod
+    cp script/mech-dump blib/script/mech-dump
+    /usr/local/bin/perl "-MExtUtils::MY" -e "MY->fixin(shift)" blib/script/mech-dump
+    Manifying blib/man1/mech-dump.1
+    Manifying blib/man3/WWW::Mechanize::Examples.3
+    Manifying blib/man3/WWW::Mechanize.3
+    Manifying blib/man3/WWW::Mechanize::FAQ.3
+    Manifying blib/man3/WWW::Mechanize::Link.3
+
+=head1 C<make test>
+
+=head2 C<make test>
+
+Runs the test suite, usually F<t/*.t>.
+
+    $ make test
+    cp script/mech-dump blib/script/mech-dump
+    /usr/local/bin/perl "-MExtUtils::MY" -e "MY->fixin(shift)"
+        blib/script/mech-dump
+    PERL_DL_NONLAZY=1 /usr/local/bin/perl "-MExtUtils::Command::MM"
+        "-e" "test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
+    t/00.load...............ok 1/2# Testing WWW::Mechanize 0.71_02
+    t/00.load...............ok
+    ...
+    t/warn..................ok
+    t/warnings..............ok
+    All tests successful.
+    Files=38, Tests=468, 85 wallclock secs (28.92 cusr +  6.42 csys = 35.34 CPU)
+
+=head1 C<make install>
+
+=head2 C<make install>
+
+Installs the module into your target directories.
+
+=head1 Dissecting WWW::Mechanize
+
+=head2 The files
+
+    Changes
+    Makefile.PL
+    MANIFEST
+    META.yml
+
+    lib/WWW/Mechanize
+    lib/WWW/Mechanize/Examples.pod
+    lib/WWW/Mechanize/FAQ.pod
+    lib/WWW/Mechanize/Link.pm
+    lib/WWW/Mechanize.pm
+
+    script/mech-dump
+
+    t/00.load.t
+    t/98.rules.t
+    t/add_header.t
+    ...
+    t/tick.t
+    t/warn.t
+    t/warnings.t
+
+=head1 F<Changes>
+
+=head2 F<Changes>
+
+Tracks your revision history.
+
+=item * For you
+
+Keep track of what problems have been fixed when.
+
+=item * For users
+
+Find out what's new in a release before installing it.
+
+=head1 F<Changes> for WWW::Mechanize
+
+=head2 F<Changes> for WWW::Mechanize
+
+   0.70 Sun Nov 30 23:45:27 CST 2003
+        [THINGS THAT MAY BREAK YOUR CODE]
+        * Redirects are now handled better by LWP, so the code that
+          changes POSTs to GETs on redirects has been removed.
+
+        [FIXES]
+        * Fixed redirect_ok(), which had its API changed out from under
+          it in LWP 5.76.
+
+        [ENHANCEMENTS]
+        * New warnings in find_link() for strings that are space padded,
+          and for text matches that are passed a regex.  Thanks to
+          Jim Cromie.
+
+        [DOCUMENTATION]
+        * Patches from Mark Stosberg and Jim Cromie.
+
+        [INTERNALS]
+        * Removed all the checking for Carp.  I don't know why
+          I was thinking that Carp wasn't core. RT #4523.
+
+=head1 F<Makefile.PL>
+
+=head2 C<WriteMakefile> creates your F<Makefile>
+
+    WriteMakefile( 
+        'NAME'      => 'WWW::Mechanize',
+        'VERSION_FROM'  => 'lib/WWW/Mechanize.pm',
+        'ABSTRACT_FROM' => 'lib/WWW/Mechanize.pm',
+        'AUTHOR'        => 'Andy Lester <andy@petdance.com>',
+        'PREREQ_PM'     => { # e.g., Module::Name => 1.1
+                        'Carp'                  => 0,
+                        'File::Temp'        => 0,
+                        'FindBin'           => 0,
+                        'HTML::Form'        => 1.038,
+                        'HTML::HeadParser'  => 0,
+                        'HTML::TokeParser'  => 2.28,
+                        'HTTP::Daemon'      => 0,
+                        'HTTP::Request'     => 1.30,
+                        'HTTP::Status'      => 0,
+                        'LWP'               => 5.76,
+                        'LWP::UserAgent'    => 2.024,
+                        'Test::More'        => 0.34,
+                        'URI::URL'          => 0,
+                        'URI::file'         => 0,
+                        },
+        'EXE_FILES' =>  [ 'script/mech-dump' ];
+        clean       => { FILES => 'WWW-Mechanize-0*' ) },
+    } );
+
+=head1 Creating a distribution from scratch
+
+=head2 Creating a distribution from scratch

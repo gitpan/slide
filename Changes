@@ -1,14 +1,31 @@
 Revision history for Perl extension App::Slide
 
-0.01	Wed Jan  7 22:30:51 CST 2004
+0.92    Sat May 15 00:04:57 CDT 2004
+        STILL MANY THINGS TO DO:
 
-	Raw from Casey West's original "slod" system.
+        * Get F<> and C<> working.
 
-	This is so alpha it hurts to even think about it.  Stuff
-	is going to change like crazy.  It works, sort of.  There
-	will be changes coming down the pipe, and I'm not even going
-	to document them!  THAT'S how alpha this baby is.
+        * Fix some missing directives in cpan-template slides.
 
-	So if you want to use it, go ahead, but otherwise, wait a
-	few days.
+        STUFF DONE:
+        * Fixed some HTML in the default templates.
+
+        * All template files now end in .tt in the distro.
+
+        * Removed the "click anywhere on the page" JavaScript.
+          Removed the "continued..." stuff, too.
+
+
+
+0.01    Wed Jan  7 22:30:51 CST 2004
+
+        Raw from Casey West's original "slod" system.
+
+        This is so alpha it hurts to even think about it.  Stuff
+        is going to change like crazy.  It works, sort of.  There
+        will be changes coming down the pipe, and I'm not even going
+        to document them!  THAT'S how alpha this baby is.
+
+        So if you want to use it, go ahead, but otherwise, wait a
+        few days.
 
